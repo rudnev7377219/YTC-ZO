@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <conio.h> 
+#include <math.h>
+#include <process.h>
+#include <locale.h>
+#include <malloc.h>
+ 
+void main ()   {   setlocale(LC_CTYPE, "Russian");
+double a=1, b=8, s,m=5,d,h, i,x,x1,x2,y,y1,y2,dy,dy1,dy3;
+int j,f;
+int n=21;
+double massx[100];
+double massy[100];
+double funk,funk1,funk2;
+system("cls");  fflush(stdin);
+//printf("\nВведите a:\n"); 
+//scanf_s("%lf", &a);
+//printf("\nВведите b:\n"); 
+//scanf_s("%lf", &b);
+h=(b-a)/4;
+printf("\n h=%lf  |  a=%lf  \  b=%lf  \n",h,a,b); 
+printf("\n");
+/////////Рассчет узлвых точек
+puts("   i     |   x    |   y    |  yn-y ");
+puts("============================================= ");
+i=1;
+funk=0;
+x=0;
+x1=0;
+y1=0;
+j=0;
+while (i<=b){
+x=a+((i-1)*(b-a))/(n-1);
+ 
+y=log(x)-5*cos(x); 
+printf("\n %.4lf | %.4lf | %.4lf   \n", i,x,y);
+i+=h;
+}
+////Рассчет точек функции L
+i=1;
+h=(b-a)/20;
+f=0;
+puts("   i     |   x    |   y    |  yn-y ");
+puts("============================================= ");
+while (i<=b){
+x=a+((i-1)*(b-a))/20;
+massx[j]=x;
+j=j+1;
+y=log(x)-5*cos(x); 
+massy[f]=y;
+f=f+1;
+//printf("\n %.4lf | %.4lf | %.4lf   \n", i,x,y);
+i+=h;
+}
+ 
+puts("============================================= ");
+for (j=0;j<=20;j++){printf("%lf        %lf\n ",massx[j],massy[j]);}
+puts("============================================= ");
+//for (f=0;f<=20;f++){printf("%lf\n",massy[f]);}
+_getch();  }
